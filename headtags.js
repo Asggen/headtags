@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-function DocumentTitle({ title, description, keywords, context }) {
+function HeadTags({ title, description, keywords, context }) {
   useEffect(() => {
     // Update the document title
     if (typeof document !== "undefined") {
@@ -36,4 +36,4 @@ function updateMetaTag(name, content) {
   }
 }
 
-export default DocumentTitle;
+export default HeadTags;
