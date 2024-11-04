@@ -99,7 +99,7 @@ const createReactApp = async (location, res) => {
 ```
 
 # License
-## [MIT License] [(https://github.com/Asggen/headtags/blob/main/LICENSE)]
+## [MIT License](https://github.com/Asggen/headtags/blob/main/LICENSE)
 
 ```go
 This `README.md` provides an overview of the package, installation instructions, usage examples, and an example for server-side rendering. Adjust the content based on your package's specific details and requirements.
