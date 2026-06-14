@@ -6,6 +6,9 @@ function HeadTags({
   keywords,
   image,
   url,
+  type = "website",
+  tagIDs,
+  tagNames,
   context,
 }) {
   useEffect(() => {
@@ -29,9 +32,17 @@ function HeadTags({
       updateOgTag("og:description", description);
       updateOgTag("og:image", image);
       updateOgTag("og:url", url);
-      updateOgTag("og:type", "website");
+      updateOgTag("og:type", type);
+
+      updateDataLayer({
+      title,
+      url,
+      type,
+      tagIDs,
+      tagNames,
+      });
     }
-  }, [title, description, keywords, image, url]);
+  }, [title, description, keywords, image, url, type, tagIDs, tagNames]);
 
   /* =========================
      SSR CONTEXT
@@ -42,6 +53,9 @@ function HeadTags({
     context.keywords = keywords;
     context.image = image;
     context.url = url;
+    context.type = type;
+    context.tagIDs = tagIDs;
+    context.tagNames = tagNames;
   }
 }
 
@@ -89,6 +103,45 @@ function updateOgTag(property, content) {
 
     document.head.appendChild(tag);
   }
+}
+
+/* =========================
+   DATA LAYER FOR ANALYTICS
+========================= */
+
+function updateDataLayer({
+  title,
+  url,
+  type,
+  tagIDs = [],
+  tagNames = [],
+}) {
+  let script = document.getElementById("data-layer");
+
+  const data = {
+    page: {
+      pageName: title,
+      pagePath: url,
+      pageType: type,
+      category: {
+        tags: {
+          tagIDs,
+          tagNames,
+        },
+      },
+    },
+  };
+
+  if (!script) {
+    script = document.createElement("script");
+
+    script.id = "data-layer";
+    script.type = "application/json";
+
+    document.head.appendChild(script);
+  }
+
+  script.textContent = JSON.stringify(data);
 }
 
 module.exports = HeadTags;

@@ -1,6 +1,6 @@
 {
   "name": "asggen-headtags",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "types": "asggen-headtags.d.ts",
   "description": "Change Head Tags in SSR",
   "keywords": [
