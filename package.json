@@ -1,0 +1,24 @@
+{
+  "name": "asggen-headtags",
+  "version": "1.0.4",
+  "types": "asggen-headtags.d.ts",
+  "description": "Change Head Tags in SSR",
+  "keywords": [
+    "ssr",
+    "meta",
+    "tags"
+  ],
+  "homepage": "https://github.com/Asggen/headtags",
+  "bugs": {
+    "url": "https://github.com/Asggen/headtags/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Asggen/headtags.git"
+  },
+  "author": "imarksea",
+  "files": [
+    "index.js"
+  ],
+  "license": "MIT"
+}
